@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 
+
 @Component({
   selector: 'app-search-component',
   templateUrl: './search-component.component.html',
@@ -8,12 +9,12 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 })
 export class SearchComponentComponent implements OnInit {
 
-  constructor(private http:HttpServiceService) { }
+  constructor() { }
+
+
 
   ngOnInit() {
-    this.http.getAllIngredients().subscribe(r => {
-      console.dir(r);
-    })
+    
   }
 
 }

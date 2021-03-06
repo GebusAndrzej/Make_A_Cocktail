@@ -12,7 +12,7 @@ export class HttpServiceService {
 
   api = 'https://www.thecocktaildb.com/api/json/v1/1/list.php';
 
-  getAllIngredients():Observable<any> {
+  getAllIngredients():Observable<string[]> {
 
     return this.http.get<any>(this.api+'?i=list').pipe(
 

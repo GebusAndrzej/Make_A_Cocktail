@@ -1,7 +1,22 @@
-@import "../../../styles.less";
+@import "../../../assets/css/cssvar.less";
 
-:host(.active) {
-    width:100%;
-    height:300px;
-    background-color: wheat;
+p{
+    font-family: @font-primary;
+    font-size:3rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    display:grid;
+    grid-template-columns: 1fr 10fr 1fr;
+
+    .main{
+        display:flex;
+        justify-content: space-evenly;
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+        }
+    }
 }
