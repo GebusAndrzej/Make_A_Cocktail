@@ -1,3 +1,6 @@
+<img src="/assets/cocktail_bg1.png" class="bg1">
+<img src="/assets/cocktail_bg3.png" class="bg2">
+<img src="/assets/cocktail_bg4.png" class="bg3">
 <p>Search Cocktails</p>
 <div class="container">
     <div>
@@ -5,7 +8,8 @@
     </div>
 
     <div class="main">
-        <app-chips-search-component></app-chips-search-component>
-        <app-chips-search-component></app-chips-search-component>
+        <app-chips-search-component (ingr)="recieveIngredients($event)"></app-chips-search-component>
+        <app-advanced-search-component (search)="advSearch($event)"></app-advanced-search-component>
     </div>
 </div>
+

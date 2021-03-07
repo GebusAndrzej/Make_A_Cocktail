@@ -1,5 +1,8 @@
 
+    <p>What I have:</p>
+
     <mat-form-field class="example-chip-list">
+
 
         <mat-label>My Ingredients</mat-label>
 
@@ -15,10 +18,12 @@
 
             
         </mat-chip-list>
+
         <br/>
+        
         <input
-                class="full-width-field"
-                placeholder="Seatch ingredient..."
+                class="full-width"
+                placeholder="Search ingredient..."
                 #ingredientInput
                 [formControl]="ingredientCtrl"
                 [matAutocomplete]="auto"
@@ -33,3 +38,9 @@
         </mat-autocomplete>
         
     </mat-form-field>
+
+    <p>
+        <button mat-raised-button color="warn" (click)="send()">Find me a cocktail</button>
+    </p>
+    
+    

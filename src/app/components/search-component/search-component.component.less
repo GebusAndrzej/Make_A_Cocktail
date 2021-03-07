@@ -1,5 +1,8 @@
 @import "../../../assets/css/cssvar.less";
 
+:host{
+    overflow-y: hidden;
+}
 p{
     font-family: @font-primary;
     font-size:3rem;
@@ -15,8 +18,27 @@ p{
         display:flex;
         justify-content: space-evenly;
 
-        @media (max-width: 640px) {
+        @media (max-width: 830px) {
             flex-direction: column;
+            align-items: center;
         }
     }
+}
+
+img{
+    position:absolute;
+    z-index: -1;
+
+    @media (max-width:1440px) {
+        display:none;
+    }
+    bottom:-40px;
+    transform: scale(.8);
+}
+.bg2{
+    left:50%;
+    transform: translateX(-55%) scale(.8);
+}
+.bg3{
+    right:0;
 }

@@ -21,12 +21,22 @@ export class HttpServiceService {
         let ingredients = data.drinks.map( x => {
           return x.strIngredient1;
         })
-
         return ingredients;
       })
-      
     )
-
   }
 
+  gatAllDrinkTypes():Observable<string[]>{
+    return this.http.get<any>(this.api+'?c=list').pipe(
+      map(data => {
+        //parse to array of strings
+        let types = data.drinks.map( x => {
+          return x.strCategory;
+        })
+        return types;
+      })
+    )
+  }
+
+  
 }

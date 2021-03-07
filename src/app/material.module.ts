@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 
-import { MatButtonModule } from '@angular/material'
+import { MatButtonModule, MatInputModule } from '@angular/material'
 import {MatChipsModule} from '@angular/material/chips';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSelectModule} from '@angular/material/select'
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import {MatIconModule} from '@angular/material/icon';
         MatChipsModule,
         MatAutocompleteModule,
         MatFormFieldModule,
-        MatIconModule
+        MatIconModule,
+        MatInputModule,
+        MatButtonToggleModule,
+        MatSelectModule
 
     ],
     exports: [
@@ -21,7 +26,10 @@ import {MatIconModule} from '@angular/material/icon';
         MatChipsModule,
         MatAutocompleteModule,
         MatFormFieldModule,
-        MatIconModule
+        MatIconModule,
+        MatInputModule,
+        MatButtonToggleModule,
+        MatSelectModule
     ]
   })
   export class MaterialModule {}

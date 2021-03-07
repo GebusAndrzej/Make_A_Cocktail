@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { SearchComponentComponent } from './components/search-component/search-component.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ChipsSearchComponentComponent } from './components/chips-search-component/chips-search-component.component';
+import { AdvancedSearchComponentComponent } from './components/advanced-search-component/advanced-search-component.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ChipsSearchComponentComponent } from './components/chips-search-compone
     SearchComponentComponent,
     NavbarComponent,
     ChipsSearchComponentComponent,
+    AdvancedSearchComponentComponent,
   ],
   imports: [
     BrowserModule,

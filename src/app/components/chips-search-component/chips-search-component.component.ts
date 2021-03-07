@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Output, EventEmitter  } from '@angular/core';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {FormControl} from '@angular/forms';
@@ -14,12 +14,14 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class ChipsSearchComponentComponent implements OnInit {
 
+  @Output() ingr = new EventEmitter<string[]>();
+
   constructor(private http: HttpServiceService) { }
 
   visible = true;
   selectable = true;
   removable = true;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
+  separatorKeysCodes: number[] = [];
 
   ingredientCtrl= new FormControl();
 
@@ -36,7 +38,7 @@ export class ChipsSearchComponentComponent implements OnInit {
     // get ann ingredients from API
     this.http.getAllIngredients().subscribe(r => {
       this.allIngredients=r;
-      console.dir(r);
+      //console.dir(r);
       this.detectInput();
     })
 
@@ -59,7 +61,9 @@ export class ChipsSearchComponentComponent implements OnInit {
 
     // Add our ingredient
     if ((value || '').trim()) {
-      this.ingredients.push(value.trim());
+      //accept only items from autocomplete
+
+      //this.ingredients.push(value.trim());
     }
 
     // Reset the input value
@@ -79,6 +83,7 @@ export class ChipsSearchComponentComponent implements OnInit {
     }
   }
 
+  //select from autocomplete
   selected(event: MatAutocompleteSelectedEvent): void {
     this.ingredients.push(event.option.viewValue);
     this.ingredientInput.nativeElement.value = '';
@@ -91,6 +96,11 @@ export class ChipsSearchComponentComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.allIngredients.filter(ingredient => ingredient.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  //emit ingredients to parent component
+  send(){
+    this.ingr.emit(this.ingredients);
   }
 
 }

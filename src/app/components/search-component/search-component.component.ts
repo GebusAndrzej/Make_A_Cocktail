@@ -17,4 +17,12 @@ export class SearchComponentComponent implements OnInit {
     
   }
 
+  recieveIngredients(ingr: string[]){
+    console.dir(ingr);
+  }
+
+  advSearch(data: string[]){
+    console.log(data);
+  }
+
 }
