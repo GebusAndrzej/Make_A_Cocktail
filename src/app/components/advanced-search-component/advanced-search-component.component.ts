@@ -22,7 +22,7 @@ export class AdvancedSearchComponentComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.gatAllDrinkTypes().subscribe(ret => {
+    this.http.getAllDrinkTypes().subscribe(ret => {
         this.allDrinkTypes.push(...ret);
 
     })

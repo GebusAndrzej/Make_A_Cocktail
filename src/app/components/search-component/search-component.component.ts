@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 
 
@@ -9,7 +10,7 @@ import { HttpServiceService } from 'src/app/services/http-service.service';
 })
 export class SearchComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
 
 
@@ -18,7 +19,9 @@ export class SearchComponentComponent implements OnInit {
   }
 
   recieveIngredients(ingr: string[]){
-    console.dir(ingr);
+    //console.dir(ingr);
+    this.router.navigate(['result/',ingr.join() ]);
+    
   }
 
   advSearch(data: string[]){

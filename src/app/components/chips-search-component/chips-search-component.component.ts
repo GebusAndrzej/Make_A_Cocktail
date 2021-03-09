@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Output, EventEmitter, Input  } from '@angular/core';
 import { HttpServiceService } from 'src/app/services/http-service.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {FormControl} from '@angular/forms';

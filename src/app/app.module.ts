@@ -13,6 +13,9 @@ import { SearchComponentComponent } from './components/search-component/search-c
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ChipsSearchComponentComponent } from './components/chips-search-component/chips-search-component.component';
 import { AdvancedSearchComponentComponent } from './components/advanced-search-component/advanced-search-component.component';
+import { IngredientSearchResultComponent } from './components/ingredient-search-result/ingredient-search-result.component';
+import { IngredientResultScreenComponent } from './components/ingredient-search-result/ingredient-result-screen/ingredient-result-screen.component';
+import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
 
 
 @NgModule({
@@ -22,6 +25,9 @@ import { AdvancedSearchComponentComponent } from './components/advanced-search-c
     NavbarComponent,
     ChipsSearchComponentComponent,
     AdvancedSearchComponentComponent,
+    IngredientSearchResultComponent,
+    IngredientResultScreenComponent,
+    CocktailListComponent,
   ],
   imports: [
     BrowserModule,
