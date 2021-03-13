@@ -29,7 +29,7 @@ export class IngredientResultScreenComponent implements OnInit {
 
       this.params=param.ingredients.split(',');
 
-      this.getDrinks(this.params);
+      this.drinks$ = this.getDrinks(this.params);
       //console.dir(this.params);
     })
 
@@ -45,14 +45,6 @@ export class IngredientResultScreenComponent implements OnInit {
       })           
     )
     .pipe(toArray())
-    .subscribe(data => {
-      this.filterDrinks(data)
-    })
-
-    //return this.filterDrinks(a);
-    // .subscribe(x => {
-    //   console.dir(x)
-    // })
   }
   
 

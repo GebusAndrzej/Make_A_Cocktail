@@ -1,3 +1,10 @@
-<p>cocktail-list works!</p>
-
-<div *ngFor="let item of drinks | async"> {{item.strAlcoholic}}</div>
+<p></p>
+<div class="drink-list">
+    <a  *ngFor="let item of drinks | async" class="drink-card" routerLink="/drink/{{item.idDrink}}">
+        <!-- <img src="/assets/cocktail-straw.svg"> -->
+        <img [src]="item | drinkImg">
+        <p>{{item.strDrink}}</p>
+       <span>{{item.strCategory}}</span>
+    </a>
+    
+</div>
