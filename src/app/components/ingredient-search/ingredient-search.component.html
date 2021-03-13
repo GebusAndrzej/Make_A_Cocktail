@@ -1,0 +1,31 @@
+
+    <p>Pick your primary ingredient:</p>
+
+    <mat-form-field class="ingredients">
+        <mat-label>Primary ingredient</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               [formControl]="ingrSelect"
+               [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let option of filteredIngredients" [value]="option" >
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+        
+
+
+
+
+
+        
+
+    <p>
+        <button mat-raised-button color="warn" (click)="send()" [disabled]=disabled>Find me a cocktail</button>
+    </p>
+    
+    
