@@ -24,8 +24,9 @@ export class SearchComponentComponent implements OnInit {
     
   }
 
-  advSearch(data: string[]){
-    console.log(data);
+  advSearch(data: any[] = [null,null,["aaa","bbb"]] ){
+    //console.log(data);
+    this.router.navigate(['result/',data[0],data[1],data[2].join()])
   }
 
 }

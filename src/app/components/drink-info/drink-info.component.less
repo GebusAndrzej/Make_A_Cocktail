@@ -1,0 +1,78 @@
+@import "../../../assets/css/cssvar.less";
+
+:host{
+    display:grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    font-family: @font-primary;
+}
+.drinkInfo{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+
+    .drink{
+        width:80%;
+        min-height:300px;
+        background-color:#FFFFFF;
+        border-radius:20px;
+        margin-top:40px;
+        box-shadow: @shadow;
+
+        display:grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+            "img desc"
+            "ins ins"
+        ;
+
+        figure{
+            grid-area: img;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                max-width: 100%;
+                box-shadow: @shadow;
+                border-radius: 20px;
+            }
+            max-width:100%;
+        }
+        .description {
+            
+            h2{
+                font-weight: normal;
+                font-size: 48px;
+                display:flex;
+                justify-content: center;
+            }
+            p{
+                font-size:30px;
+                font-style: italic;
+                :last-child{
+                    margin-bottom:0px;
+                }
+            }
+            
+        }
+        .instructions{
+            box-sizing: border-box;
+            padding:20px;
+            grid-area: ins;
+            h2{
+                margin-top:0;
+                font-size: 36px;
+                font-weight: normal;
+                width:40%;
+                display:flex;
+                align-items: center;
+                justify-content: center;
+            }
+            p{
+                font-style: italic;
+                font-size: 30px;
+            }
+        }
+
+    }
+}

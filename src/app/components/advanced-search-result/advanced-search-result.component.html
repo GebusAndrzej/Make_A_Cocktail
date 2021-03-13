@@ -1,0 +1,19 @@
+
+<p>Search Results</p>
+<div class="container">
+    <div>
+
+    </div>
+
+    <div class="main">
+        <app-advanced-search-component (search)="advSearch($event)"></app-advanced-search-component>
+        <div>
+            <p>
+                Search Results:
+            </p>
+            <app-cocktail-list [drinks]="drinks$"></app-cocktail-list>
+        </div>
+        
+    </div>
+</div>
+

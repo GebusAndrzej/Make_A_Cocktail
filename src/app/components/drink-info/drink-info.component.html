@@ -1,0 +1,21 @@
+<div></div>
+<section class="drinkInfo">
+    <div class="drink" *ngIf="drink">
+        <figure>
+            <img src={{drink.strDrinkThumb}}>
+        </figure>
+
+        <div class="description">
+            <h2>{{drink.strDrink}}</h2>
+            
+            <p *ngFor="let ingr of ingredients"> {{ingr}}</p>
+
+        </div>
+
+        <div class="instructions">
+            <h2>Instructions:</h2>
+            <p>{{drink.strInstructions}}</p>
+        </div>
+
+    </div>
+</section>

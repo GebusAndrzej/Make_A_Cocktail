@@ -13,14 +13,15 @@ export class AdvancedSearchComponentComponent implements OnInit {
 
   @Output() search = new EventEmitter<string[]>();
 
-  name:string;
+  name:string=" ";
 
-  alcocholic:string;
+  alcocholic:string="Both";
 
   allDrinkTypes: string[] = ['All'];
   drinkTypes = new FormControl();
 
   ngOnInit() {
+    this.drinkTypes.setValue(["All"]);
 
     this.http.getAllDrinkTypes().subscribe(ret => {
         this.allDrinkTypes.push(...ret);
