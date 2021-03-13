@@ -17,7 +17,7 @@ export class IngredientResultScreenComponent implements OnInit {
     private route: ActivatedRoute
     ) { }
 
-  drinks: drink[];
+  drinks$: Observable<drink[]>;
   params: string[];
 
   test: Observable<any>;
@@ -32,65 +32,59 @@ export class IngredientResultScreenComponent implements OnInit {
       this.getDrinks(this.params);
       //console.dir(this.params);
     })
+
     
   }
 
   getDrinks(ingredients:string[]){
-    
-    
-    // this.http.getDrinksByIngredient(ingredients).subscribe(ret => {
-    //   this.filterDrinks(ret);
-    //   //this.drinks=ret;
-    //   console.dir(ret);
-      
-    // })
-    
-    // this.test = this.http.getOneDrinkByIngredient(ingredients).pipe(
-    //   mergeMap(drink => this.http.getDrinkById(drink.idDrink) ) 
-    // );
-
-    // this.test.subscribe(x=>{
-    //   console.log("after merge");
-    //   console.dir(x);
-    // })
-
-
-    //ostatnie dobre
-    // this.http.getCombinedDrinks()
-    //   .subscribe(x => console.dir(x));
-    
-    this.http.getDrinksByIngredient(ingredients).pipe(
+    return this.http.getDrinksByIngredient(ingredients).pipe(
       mergeMap( (drinks) =>{
         return from(drinks).pipe(
           mergeMap(drink => this.http.getDrinkById(drink.idDrink))
         )
-      })
-                            /*
-                            mergeMap( (result) => {
-                              from(result).pipe(
-                                map(x => x),
-                                toArray(),
-                                map(drink => ({...result}))
-                              )
-                            } )
-                            */
-                            
+      })           
     )
     .pipe(toArray())
-    .subscribe(x => {
-      console.dir(x)
+    .subscribe(data => {
+      this.filterDrinks(data)
     })
+
+    //return this.filterDrinks(a);
+    // .subscribe(x => {
+    //   console.dir(x)
+    // })
   }
   
 
 
   filterDrinks(drinks: drink[]){
-    for (let drink of drinks){
-      for (const [k,v] of Object.entries(drink) ) {
-        let regex = /strType/;
+    let regex = /^strIngredient[0-9][0-9]?$/gm;
+    
+    let a =drinks.filter( drink => {
+      let drink_ingredients: string[]=[];
 
+      //parse ingrediens from separate fields to array
+      for (const [k,v] of Object.entries(drink) ) {
+
+        if (k.match(regex)){
+          v != null? drink_ingredients.push(v): false;
+        }
       }
-    }
+      
+      // if ( drink_ingredients.some( r => this.params.includes(r)) ){
+      //   console.log("spelnia");
+      //   console.log(drink_ingredients);
+      // }
+
+      console.log(drink_ingredients);
+      drink_ingredients=[];
+      
+      return drink
+    })
+
+    //console.log(a);
+
+    
   }
   
 

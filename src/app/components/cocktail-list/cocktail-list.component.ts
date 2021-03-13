@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { drink } from 'src/app/dataModel/drink';
 
 @Component({
   selector: 'app-cocktail-list',
@@ -9,7 +11,10 @@ export class CocktailListComponent implements OnInit {
 
   constructor() { }
 
+  @Input() drinks : Observable<drink[]>;
+
   ngOnInit() {
+
   }
 
 }

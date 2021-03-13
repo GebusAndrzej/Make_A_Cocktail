@@ -64,7 +64,6 @@ export class HttpServiceService {
   }
 
   getOneDrinkByIngredient(ingredients:string[]):Observable<drink>{
-
     return this.http.get<any>(this.api_filter+`?i=${ingredients[0]}`).pipe(
       map( data => {
         let drinks:drink[];
@@ -72,38 +71,6 @@ export class HttpServiceService {
         return drinks[0];
       })
     )
-  }
-
-  getCombinedDrinks():Observable<any>{
-    console.log("combined test");
-    let b = this.http.get<any>(this.api_filter+`?i=Lemon`)
-    .pipe(
-      map( result => {
-        let drinks = result.drinks;
-        return drinks.map( drink => {
-          //let v = this.getDrinkById(drink.idDrink);
-          //return combineLatest(drink,v);
-          return mergeMap( fulldrink => this.getDrinkById(drink.idDrink))
-          //return Object.assign(drink,{"aaaa":"asdasd"})
-        })
-      })
-
-      // ,switchMap( ff => {
-      //   return Object.assign(ff,{'zajonc':'aaaaa'});
-      // })
-    )
-
-    return b;
-
-    // return this.http.get<any>(this.api_filter+`?i=Lemon`).pipe(
-    //   mergeMap( (result:any) => {
-    //     console.dir(result);
-    //     return from(result.drinks).pipe(
-    //       switchMap(drink => this.getDrinkById(result.drinks.idDrink))
-    //     )
-    //   })
-    // )
-  
   }
 
 
