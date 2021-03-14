@@ -1,4 +1,10 @@
 # MakeCocktail
+Application for search for cocktails
+
+#Used:
+- Angular
+- Angular Material
+- TheCocktailDB API
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
 
