@@ -40,6 +40,7 @@ export class DrinkInfoComponent implements OnInit {
       })
   }
 
+  
   getIngredients(drink: drink){
     let regex = /^strIngredient[0-9][0-9]?$/gm;
     let regex2 = /^strMeasure[0-9][0-9]?$/gm;

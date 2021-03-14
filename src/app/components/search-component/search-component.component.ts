@@ -19,13 +19,11 @@ export class SearchComponentComponent implements OnInit {
   }
 
   recieveIngredients(ingr: string[]){
-    //console.dir(ingr);
     this.router.navigate(['result/',ingr.join() ]);
     
   }
 
-  advSearch(data: any[] = [null,null,["aaa","bbb"]] ){
-    //console.log(data);
+  advSearch(data: any[] = [null,null,[" "," "]] ){
     this.router.navigate(['result/',data[0],data[1],data[2].join()])
   }
 

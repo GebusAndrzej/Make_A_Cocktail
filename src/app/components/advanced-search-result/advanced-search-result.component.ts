@@ -32,7 +32,6 @@ export class AdvancedSearchResultComponent implements OnInit {
   getparams(){
     this.route.params.subscribe(params => {
       this.filter(params);
-      // this.drinks$=this.http.getDrinksByName("margarita");
     }).unsubscribe();
   }
 

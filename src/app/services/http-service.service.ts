@@ -14,11 +14,10 @@ export class HttpServiceService {
   api_ingredients = 'https://www.thecocktaildb.com/api/json/v1/1/list.php';
   api_filter = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php';
   api_drink = 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php';
+  api_name = 'https://www.thecocktaildb.com/api/json/v1/1/search.php';
 
   getAllIngredients():Observable<string[]> {
-
     return this.http.get<any>(this.api_ingredients+'?i=list').pipe(
-
       map(data => {
         //parse json into array of strings
         let ingredients = data.drinks.map( x => {
@@ -70,6 +69,32 @@ export class HttpServiceService {
         drinks=data.drinks.map( x => x);
         return drinks[0];
       })
+    )
+  }
+
+  getDrinksByName(name:string):Observable<drink[]>{
+    return this.http.get<any>(this.api_name+`?s=${name}`).pipe(
+      map( data => {
+        let drinks:drink[];
+        drinks=data.drinks.map( x => x);
+        return drinks;
+      })
+    )
+  }
+
+  getDrinksByAlcoholic(alcoholic:string):Observable<drink[]>{
+    return this.http.get<any>(this.api_filter+`?a=${alcoholic}`).pipe(
+      map( data => {
+        let drinks:drink[];
+        drinks=data.drinks.map( x => x);
+        return drinks;
+      }),
+      mergeMap( (drinks) =>{
+        return from(drinks).pipe(
+          mergeMap(drink => this.getDrinkById(drink.idDrink))
+        )
+      }),
+      toArray()   
     )
   }
 

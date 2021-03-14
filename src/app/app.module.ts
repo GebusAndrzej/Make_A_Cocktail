@@ -18,6 +18,8 @@ import { IngredientResultScreenComponent } from './components/ingredient-search-
 import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
 import { DrinkImgPipe } from './pipes/drink-img.pipe';
 import { IngredientSearchComponent } from './components/ingredient-search/ingredient-search.component';
+import { DrinkInfoComponent } from './components/drink-info/drink-info.component';
+import { AdvancedSearchResultComponent } from './components/advanced-search-result/advanced-search-result.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { IngredientSearchComponent } from './components/ingredient-search/ingred
     CocktailListComponent,
     DrinkImgPipe,
     IngredientSearchComponent,
+    DrinkInfoComponent,
+    AdvancedSearchResultComponent,
   ],
   imports: [
     BrowserModule,

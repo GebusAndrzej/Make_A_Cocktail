@@ -17,7 +17,7 @@ export class DrinkImgPipe implements PipeTransform {
       .set("Homemade Liqueur", "/assets/cocktail.svg")
       .set("Punch / Party Drink", "/assets/cocktail-straw.svg")
       .set("Beer", "/assets/beer.svg")
-      .set("Soft Drink / Soda", "/assets/soft-drink.svg");
+      .set("Soft Drink / Soda", "/assets/soft-drin.svg");
 
 
   
