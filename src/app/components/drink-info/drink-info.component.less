@@ -4,6 +4,10 @@
     display:grid;
     grid-template-columns: 1fr 10fr 1fr;
     font-family: @font-primary;
+
+    @media (max-width:1000px) {
+        grid-template-columns: 1fr;
+    }
 }
 .drinkInfo{
     display:flex;
@@ -83,6 +87,7 @@
                 "img"
                 "desc"
                 "ins";
+            width:95%;
 
             .description{
                 padding:20px;
@@ -91,6 +96,9 @@
                 }
             }
             .instructions{
+                h2{
+                    width:90%;
+                }
                 p{
                     font-size:1.8rem;
                 }

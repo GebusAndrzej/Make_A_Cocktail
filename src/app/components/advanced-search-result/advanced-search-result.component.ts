@@ -39,7 +39,7 @@ export class AdvancedSearchResultComponent implements OnInit {
     //console.log(params);
 
     if (params.name!=" "){
-      this.http.getDrinksByName(params.name).subscribe( drinks => {
+      this.http.getDrinksByName(params.name.trim()).subscribe( drinks => {
         this.drinks=drinks;
         this.drinks=this.alcoholicFilter(this.drinks, params.alcoholic);
         this.drinks=this.typeFilter(this.drinks, params.types.split(","));
@@ -69,7 +69,7 @@ export class AdvancedSearchResultComponent implements OnInit {
 
 
   alcoholicFilter(drinks:drink[], alcoholic: string){
-    return alcoholic=="Both"?drinks:drinks.filter(drink => drink.strAlcoholic==alcoholic);
+    return alcoholic=="Both"?drinks:drinks.filter(drink => drink.strAlcoholic.toLowerCase()==alcoholic.toLowerCase());
   }
 
   typeFilter(drinks: drink[],types:string[]){
@@ -80,8 +80,10 @@ export class AdvancedSearchResultComponent implements OnInit {
 
   advSearch(data: any[] = [null,null,["aaa","bbb"]] ){
     //console.log(data);
-    this.router.navigate(['result/',data[0],data[1],data[2].join()])
-    this.getparams();
+    this.router.navigate(['result/',data[0],data[1],data[2].join()]).then(() => {
+      this.getparams();
+    })
+    
   }
 
 }
