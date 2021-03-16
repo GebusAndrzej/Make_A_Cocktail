@@ -1,7 +1,7 @@
 # MakeCocktail
 Application for search for cocktails
 
-#Used:
+# Used:
 - Angular
 - Angular Material
 - TheCocktailDB API
